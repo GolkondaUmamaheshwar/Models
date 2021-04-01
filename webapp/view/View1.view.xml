@@ -1,0 +1,82 @@
+<mvc:View
+    controllerName="ux.projectintial.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+    <Table
+				id="table"
+				width="auto"
+				items="{/PurchaseOrders}"
+			    noDataText="{worklistView>/tableNoDataText}"
+				busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+				growing="true"
+				growingScrollToLoad="true"
+				updateFinished=".onUpdateFinished">
+
+            <headerToolbar>
+					<OverflowToolbar>
+						<Title
+							id="tableHeader"
+							text="{worklistView>/worklistTableTitle}"
+							level="H3"/>
+						<ToolbarSpacer />
+						<SearchField
+							id="searchField"
+							tooltip="{i18n>worklistSearchTooltip}"
+							search=".onSearch">
+							<layoutData>
+								<OverflowToolbarLayoutData
+									maxWidth="200px"
+									priority="NeverOverflow"/>
+							</layoutData>
+						</SearchField>
+					</OverflowToolbar>
+				</headerToolbar>
+
+
+				<columns>
+					<Column id="DeliveryAddressColumn">
+						<Text text="{i18n>DeliveryAddress}" id="DeliveryAddressColumnTitle"/>
+					</Column>
+					<Column id="OrderedByNameColumn">
+						<Text text="{i18n>OrderedByName}" id="OrderedByNameColumnTitle"/>
+					</Column>
+
+					<Column id="SupplierNameColumn">
+						<Text text="{i18n>SupplierName}" id="SupplierNameColumnTitle"/>
+					</Column>
+					</columns>
+
+					<items>
+					<ColumnListItem
+						type="Navigation"
+						press=".onPress">
+						<cells>
+						       <ObjectIdentifier
+								title="{DeliveryAddress}"/>
+								
+								<Text text="{OrderedByName}"></Text>
+									<Text text="{SupplierName}"></Text>	
+									<ObjectNumber
+									       number="{
+											   path: 'POID',
+											   formatter: '.formatter.numberUnit'
+										   }"
+										   unit="{GrossAmount}"/>
+								
+									</cells>
+									</ColumnListItem>
+								 </items>
+		</Table>
+			  </content>
+			  </Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

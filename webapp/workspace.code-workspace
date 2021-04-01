@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\projects\\mockdata"
+		},
+		{
+			"name": "ui5-calculator",
+			"path": "..\\..\\..\\projects\\calc\\ui5-calculator"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}
